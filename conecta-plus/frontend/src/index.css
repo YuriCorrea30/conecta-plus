@@ -1,0 +1,259 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+  color: #222;
+}
+
+.menu {
+  width: 100%;
+  background-color: #1e3a5f;
+  color: white;
+  padding: 20px 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.logo span {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.menu ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+.menu li {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.menu li:hover {
+  opacity: 0.7;
+}
+
+.dashboard {
+  padding: 40px;
+}
+
+.dashboard-header {
+  margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.dashboard-header p {
+  color: #666;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+  color: #1e3a5f;
+  margin-bottom: 15px;
+}
+
+.card strong {
+  display: block;
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.card p {
+  color: #777;
+}
+
+.lista {
+  padding: 40px;
+}
+
+.lista-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.lista-header h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.lista-header p {
+  color: #666;
+}
+
+.botao-principal {
+  background-color: #1e3a5f;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.botao-principal:hover {
+  background-color: #162d49;
+}
+
+.lista-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.info-card {
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.info-card h3 {
+  margin: 15px 0 10px;
+  color: #1e3a5f;
+}
+
+.info-card p {
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.categoria {
+  display: inline-block;
+  background-color: #e8f0f8;
+  color: #1e3a5f;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.botao-secundario {
+  background-color: transparent;
+  color: #1e3a5f;
+  border: 1px solid #1e3a5f;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.botao-secundario:hover {
+  background-color: #1e3a5f;
+  color: white;
+}
+
+.formulario {
+  padding: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.formulario-header {
+  margin-bottom: 30px;
+}
+
+.formulario-header h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.formulario-header p {
+  color: #666;
+}
+
+.formulario form {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.campo label {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.campo input,
+.campo textarea,
+.campo select {
+  padding: 12px;
+  border: 1px solid #d5d5d5;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+}
+
+.campo input:focus,
+.campo textarea:focus,
+.campo select:focus {
+  outline: none;
+  border-color: #1e3a5f;
+}
+
+.campo textarea {
+  resize: vertical;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  opacity: 0.7;
+}
+
+.botao-principal {
+  display: inline-block;
+  background-color: #1e3a5f;
+  color: white;
+  text-decoration: none;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.botao-principal:hover {
+  background-color: #162d49;
+}
