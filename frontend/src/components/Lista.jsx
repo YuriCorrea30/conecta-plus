@@ -1,6 +1,42 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function Lista() {
+function Lista({ informacoes, setInformacoes }) {
+  const [filtro, setFiltro] = useState("Todos");
+  const [informacaoEditando, setInformacaoEditando] = useState(null);
+
+  const informacoesFiltradas =
+    filtro === "Todos"
+      ? informacoes
+      : informacoes.filter(
+          (informacao) => informacao.categoria === filtro
+        );
+
+  function excluirInformacao(id) {
+    const novasInformacoes = informacoes.filter(
+      (informacao) => informacao.id !== id
+    );
+
+    setInformacoes(novasInformacoes);
+  }
+
+  function iniciarEdicao(informacao) {
+    setInformacaoEditando(informacao);
+  }
+
+  function salvarEdicao() {
+    const novasInformacoes = informacoes.map((informacao) =>
+      informacao.id === informacaoEditando.id
+        ? informacaoEditando
+        : informacao
+    );
+
+    setInformacoes(novasInformacoes);
+    setInformacaoEditando(null);
+
+    alert("Informação atualizada com sucesso!");
+  }
+
   return (
     <section className="lista">
       <div className="lista-header">
@@ -14,52 +50,88 @@ function Lista() {
         </Link>
       </div>
 
+      <div className="filtros">
+        <button onClick={() => setFiltro("Todos")}>
+          Todos
+        </button>
+
+        <button onClick={() => setFiltro("alerta")}>
+          Alertas
+        </button>
+
+        <button onClick={() => setFiltro("informacao")}>
+          Informações
+        </button>
+
+        <button onClick={() => setFiltro("orientacao")}>
+          Orientações
+        </button>
+      </div>
+
+      {informacaoEditando && (
+        <div className="formulario-edicao">
+          <h2>Editando: {informacaoEditando.titulo}</h2>
+
+          <input
+            type="text"
+            value={informacaoEditando.titulo}
+            onChange={(event) =>
+              setInformacaoEditando({
+                ...informacaoEditando,
+                titulo: event.target.value
+              })
+            }
+          />
+
+          <textarea
+            value={informacaoEditando.descricao}
+            onChange={(event) =>
+              setInformacaoEditando({
+                ...informacaoEditando,
+                descricao: event.target.value
+              })
+            }
+          />
+
+          <button
+            className="botao-principal"
+            onClick={salvarEdicao}
+          >
+            Salvar alterações
+          </button>
+        </div>
+      )}
+
       <div className="lista-cards">
+        {informacoesFiltradas.map((informacao) => (
+          <div className="info-card" key={informacao.id}>
+            <span className="categoria">
+              {informacao.categoria}
+            </span>
 
-        <div className="info-card">
-          <span className="categoria">Informação</span>
+            <h3>{informacao.titulo}</h3>
 
-          <h3>Informação 1</h3>
+            <p>{informacao.descricao}</p>
 
-          <p>
-            Exemplo de informação importante para os usuários
-            do Conecta Plus.
-          </p>
+            <button className="botao-secundario">
+              Ver detalhes
+            </button>
 
-          <button className="botao-secundario">
-            Ver detalhes
-          </button>
-        </div>
+            <button
+              className="botao-secundario"
+              onClick={() => iniciarEdicao(informacao)}
+            >
+              Editar
+            </button>
 
-        <div className="info-card">
-          <span className="categoria">Orientação</span>
-
-          <h3>Informação 2</h3>
-
-          <p>
-            Outra informação importante disponível para os
-            usuários.
-          </p>
-
-          <button className="botao-secundario">
-            Ver detalhes
-          </button>
-        </div>
-
-        <div className="info-card">
-          <span className="categoria">Alerta</span>
-
-          <h3>Informação 3</h3>
-
-          <p>
-            Alerta ou orientação que pode ser exibido no sistema.
-          </p>
-
-          <button className="botao-secundario">
-            Ver detalhes
-          </button>
-        </div>
-
+            <button
+              className="botao-secundario"
+              onClick={() => excluirInformacao(informacao.id)}
+            >
+              Excluir
+            </button>
+          </div>
+        ))}
       </div>
     </section>
   );

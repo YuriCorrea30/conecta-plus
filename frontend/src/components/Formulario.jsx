@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Formulario() {
+function Formulario({ informacoes, setInformacoes }) {
   const [titulo, setTitulo] = useState("");
   const [descricao, setDescricao] = useState("");
   const [categoria, setCategoria] = useState("");
@@ -8,9 +8,14 @@ function Formulario() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    console.log("Título:", titulo);
-    console.log("Descrição:", descricao);
-    console.log("Categoria:", categoria);
+   const novaInformacao = {
+  id: Date.now(),
+  titulo: titulo,
+  descricao: descricao,
+  categoria: categoria
+};
+
+setInformacoes([...informacoes, novaInformacao]);
 
     alert("Informação cadastrada com sucesso!");
 

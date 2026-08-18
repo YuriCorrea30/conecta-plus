@@ -257,3 +257,29 @@ body {
 .botao-principal:hover {
   background-color: #162d49;
 }
+
+.formulario-edicao {
+  background: white;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 12px;
+}
+
+.formulario-edicao h2 {
+  margin-bottom: 15px;
+}
+
+.formulario-edicao input,
+.formulario-edicao textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.formulario-edicao textarea {
+  min-height: 100px;
+  resize: vertical;
+}
